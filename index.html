@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryoCalc - Desafio Gelado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--vai criar uma "cortina" invisível pra simular uma nevasca-->
+    <div class="blizzard-overlay" id="blizzardOverlay">❄️ NEVASCA DESTRUIDORA! FIM DE JOGO ❄️</div> 
+
+    <div class="calculator" id="calculatorBox">
+        <h1>CryoCalc ⛄</h1>
+        <div id="startScreen" class="screen">
+            <p>Digite seu nome, desafiante:</p>
+            <input type="text" id="playerNameInput" placeholder="Seu Nome">
+            <button class="btn btn-action" id="startBtn">Iniciar Jogo ❄️</button>
+        </div>
+
+        <!--painel do jogo-->
+        <div id="gameScreen" class="screen hidden"> <!--começa escondido até apertar o botão de iniciar-->
+            <div class="status-panel">
+                <span>Jogador: <strong id="dispName">-</strong></span>
+                <span>Recorde: <strong id="dispRecord">0</strong> pts</span>
+            </div>
+            <div class="status-panel">
+                <span>Pontos: <strong id="dispScore">0</strong></span>
+                <span>Tempo: <strong id="dispTime">10</strong>s</span>
+            </div>
+
+            <div class="display">
+                <div id="expression" class="expression">Resolva:</div>
+                <div id="result" class="result">0</div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn btn-clear" id="btnCE">CE</button>
+                <button class="btn btn-clear" id="btnClear">C</button>
+                <button class="btn btn-clear" id="btnDelete">⌫</button>
+                <button class="btn btn-operator" data-value="/">÷</button>
+
+                <button class="btn btn-number" data-value="7">7</button>
+                <button class="btn btn-number" data-value="8">8</button>
+                <button class="btn btn-number" data-value="9">9</button>
+                <button class="btn btn-operator" data-value="*">×</button>
+
+                <button class="btn btn-number" data-value="4">4</button>
+                <button class="btn btn-number" data-value="5">5</button>
+                <button class="btn btn-number" data-value="6">6</button>
+                <button class="btn btn-operator" data-value="-">-</button>
+
+                <button class="btn btn-number" data-value="1">1</button>
+                <button class="btn btn-number" data-value="2">2</button>
+                <button class="btn btn-number" data-value="3">3</button>
+                <button class="btn btn-operator" data-value="+">+</button>
+
+                <button class="btn btn-number" id="btnToggle">+/-</button>
+                <button class="btn btn-number" data-value="0">0</button>
+                <button class="btn btn-number" data-value=".">.</button>
+                <button class="btn btn-equal" id="btnEqual">=</button>
+            </div>
+        </div>
+
+        <!--tela de vitória-->
+        <div id="winScreen" class="screen hidden"> <!--começa escondida-->
+            <div class="snowman">⛄</div>
+            <h2>Parabéns, <span id="winnerName"></span>!</h2>
+            <p>Você atingiu um novo recorde incrível!</p>
+            <button class="btn btn-action" id="restartBtn">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

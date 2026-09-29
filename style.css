@@ -1,0 +1,145 @@
+* { margin: 0; padding: 0; box-sizing: border-box; } /*limpa as margens e espaços automáticos do navegador*/
+
+body {
+    background: linear-gradient(135deg, #0a192f 0%, #172a45 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e6f1ff;
+}
+
+.calculator {
+    background: #112240;
+    border: 2px solid #64ffda55;
+    border-radius: 20px;
+    padding: 24px;
+    width: 350px;
+    box-shadow: 0 20px 60px rgba(0, 200, 255, 0.15);
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    color: #88ffff;
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+.screen { display: flex; flex-direction: column; gap: 12px; }
+.hidden { display: none !important; } /*esconde os itens pra ficarem separados*/
+
+input[type="text"] {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #88ffff;
+    background: #0a192f;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+}
+
+.status-panel {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #8892b0;
+    background: #0a192f;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.status-panel strong { color: #64ffda; }
+
+.display {
+    background: #050c1a;
+    border-radius: 12px;
+    padding: 12px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border: 1px solid #233554;
+}
+
+.expression { font-size: 0.8rem; color: #8892b0; min-height: 18px; }
+.result { font-size: 2rem; font-weight: bold; color: #e6f1ff; }
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /*divide em 4 colunas iguais*/
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.btn {
+    padding: 14px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, background 0.2s;
+}
+
+.btn:active { transform: scale(0.93); }
+.btn-number { background: #1d3557; color: #f1faee; }
+.btn-number:hover { background: #457b9d; }
+.btn-operator { background: #1d3557; color: #a8dadc; }
+.btn-clear { background: #450920; color: #ff6b6b; }
+.btn-equal { background: #a8dadc; color: #1d3557;}
+.btn-action { background: #64ffda; color: #0a192f; width: 100%; margin-top: 10px; }
+.zero-btn {grid-column: span 2;} /*deixa o botão do 0 grande*/
+
+/*animação da nevasca*/
+.blizzard-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(255, 255, 255, 0.9);
+    color: #d90429;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    z-index: 99; /*coloca a tela na frente da calculadora*/
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+/*se perder, vai ativar a "cortina" de nevasca*/
+.blizzard-active {
+    opacity: 1;
+    pointer-events: auto; /*impede de clicar qnd aparece a nevasca*/
+    animation: shake 0.2s infinite;
+}
+
+/*desenho da animação de tremer*/
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    40% { transform: translate(1px, -1px) rotate(-1deg); }
+    60% { transform: translate(-1px, 2px) rotate(0deg); }
+    80% { transform: translate(-3px, 1px) rotate(-1deg); }
+    100% { transform: translate(1px, -2px) rotate(1deg); }
+}
+
+.snowman {
+    font-size: 4rem;
+    text-align: center;
+    animation: bounce 1s infinite alternate;
+}
+
+/*animação do boneco de neve*/
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+/*deixar centralizado e com cor*/
+#winScreen h2 { text-align: center; color: #64ffda; }
+#winScreen p { text-align: center; font-size: 0.95rem; color: #8892b0; }

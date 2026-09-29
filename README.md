@@ -1,4 +1,4 @@
-# Calculadora das Neve ⛄❄️
+# Calculadora das Neves ⛄❄️
 
 Projeto prático desenvolvido com uma temática de inverno, integrando lógica de programação, manipulação do DOM e elementos gamificados.
 

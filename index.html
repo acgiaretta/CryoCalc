@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryoCalc - Desafio Gelado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--animação da neve em todas as telas -->
+    <div class="snow-container" id="snowContainer"></div>
+
+    <div class="blizzard-overlay" id="blizzardOverlay">
+        <span>NEVASCA DESTRUIDORA! <br> FIM DE JOGO</span>
+    </div> 
+
+    <!--Painel de Ranking-->
+    <div class="ranking-panel" id="rankingPanel">
+        <h2>🏆 Top 5 Desafiantes</h2>
+        <ul id="rankingList" class="ranking-list">
+        </ul>
+    </div>
+
+    <div class="calculator" id="calculatorBox">
+        <h1>CryoCalc ❄️</h1>
+        <div id="startScreen" class="screen">
+            <p>Digite seu nome, desafiante:</p>
+            <input type="text" id="playerNameInput" placeholder="Seu Nome" autofocus>
+            
+            <div class="difficulty-container">
+                <p class="difficulty-title">Escolha a Dificuldade:</p>
+                <div class="difficulty-buttons">
+                    <button class="btn-diff active" data-diff="easy">Fácil</button>
+                    <button class="btn-diff" data-diff="medium">Médio</button>
+                    <button class="btn-diff" data-diff="hard">Difícil</button>
+                </div>
+            </div>
+
+            <button class="btn btn-action" id="startBtn">Iniciar Jogo</button>
+        </div>
+
+        <div id="gameScreen" class="screen hidden">
+            <div class="status-panel">
+                <span>Jogador: <strong id="dispName">-</strong></span>
+                <span>Recorde: <strong id="dispRecord">0</strong> pts</span>
+            </div>
+            <div class="status-panel">
+                <span>Pontos: <strong id="dispScore">0</strong></span>
+                <span>Tempo: <strong id="dispTime">10</strong>s</span>
+            </div>
+
+            <div class="display">
+                <div id="expression" class="expression">Resolva:</div>
+                <div id="result" class="result">0</div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn btn-clear" id="btnCE">CE</button>
+                <button class="btn btn-clear" id="btnClear">C</button>
+                <button class="btn btn-clear" id="btnDelete">⌫</button>
+                <button class="btn btn-operator" data-value="/">÷</button>
+
+                <button class="btn btn-number" data-value="7">7</button>
+                <button class="btn btn-number" data-value="8">8</button>
+                <button class="btn btn-number" data-value="9">9</button>
+                <button class="btn btn-operator" data-value="*">×</button>
+
+                <button class="btn btn-number" data-value="4">4</button>
+                <button class="btn btn-number" data-value="5">5</button>
+                <button class="btn btn-number" data-value="6">6</button>
+                <button class="btn btn-operator" data-value="-">-</button>
+
+                <button class="btn btn-number" data-value="1">1</button>
+                <button class="btn btn-number" data-value="2">2</button>
+                <button class="btn btn-number" data-value="3">3</button>
+                <button class="btn btn-operator" data-value="+">+</button>
+
+                <button class="btn btn-number" id="btnToggle">+/-</button>
+                <button class="btn btn-number" data-value="0">0</button>
+                <button class="btn btn-number" data-value=".">.</button>
+                <button class="btn btn-equal" id="btnEqual">=</button>
+            </div>
+        </div>
+
+        <div id="winScreen" class="screen hidden">
+            <div class="snowman">⛄</div>
+            <h2 id="endGameTitle"></h2>
+            <p id="endGameSub">Boa sorte na próxima!</p>
+            
+            <div class="continue-box">
+                <p class="continue-question">Você ainda quer participar do desafio?</p>
+                <div class="continue-buttons">
+                    <button class="btn btn-action" id="btnYes">Sim</button>
+                    <button class="btn btn-danger" id="btnNo">Não</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="watermark">Programado por Carol Giaretta ©</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
